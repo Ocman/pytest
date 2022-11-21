@@ -12,15 +12,15 @@ def app(request):
 
 # Test1
 def test_buy_prod(app):
-    app.login(username="standard_user", password="secret_sauce")
-    app.put_product_in_basket()
-    app.buy_product(basket(first_name="пнаропаопро", last_name="апрапрапрпа", postal_code="апорапопао"))
-    app.logout()
+    app.session.login(username="standard_user", password="secret_sauce")
+    app.Product.put_in_basket()
+    app.Product.buy(basket(first_name="пнаропаопро", last_name="апрапрапрпа", postal_code="апорапопао"))
+    app.session.logout()
 
 
 # Test2
 def test_empty_form(app):
-    app.login(username="standard_user", password="secret_sauce")
-    app.put_product_in_basket()
-    app.buy_product(basket(first_name=" ", last_name=" ", postal_code=" "))
-    app.logout()
+    app.session.login(username="standard_user", password="secret_sauce")
+    app.Product.put_in_basket()
+    app.Product.buy(basket(first_name=" ", last_name=" ", postal_code=" "))
+    app.session.logout()
